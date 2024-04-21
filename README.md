@@ -1,4 +1,4 @@
-# SQL Extended
+# SQL Manager
 Simple SQL database resource manager.
 
 # Why?
