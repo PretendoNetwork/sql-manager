@@ -21,12 +21,7 @@ func (m *SQLManager) Exec(query string, args ...any) (sql.Result, error) {
 	}
 	defer m.semaphore.Release(1)
 
-	result, err := m.db.Exec(query, args...)
-	if err != nil {
-		return nil, err
-	}
-
-	return result, nil
+	return m.db.Exec(query, args...)
 }
 
 func (m *SQLManager) Query(query string, args ...any) (*sql.Rows, error) {
@@ -35,12 +30,7 @@ func (m *SQLManager) Query(query string, args ...any) (*sql.Rows, error) {
 	}
 	defer m.semaphore.Release(1)
 
-	rows, err := m.db.Query(query, args...)
-	if err != nil {
-		return nil, err
-	}
-
-	return rows, nil
+	return m.db.Query(query, args...)
 }
 
 func (m *SQLManager) QueryRow(query string, args ...any) (*sql.Row, error) {
